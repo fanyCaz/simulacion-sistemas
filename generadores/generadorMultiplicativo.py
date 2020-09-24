@@ -1,12 +1,10 @@
 from fractions import Fraction
 
-def obtenerNumerosRectangulares(x0: int,a: int,m: int):
+def numRectMultiplicativos(x0: int,a: int,m: int):
     #Periodo Esperado
     PE  = int(m/4)
     xn  :int = x0
     numRectangular :int = 0
-    #n = 1
-    print(PE)
     numerosRectangulares = []
     #Formula ax0 mod m
     for i in range(PE):
@@ -32,7 +30,7 @@ def obtenerValoresIniciales():
     return x0,a,m
 
 x0,a,m = obtenerValoresIniciales()
-periodo, numeros = obtenerNumerosRectangulares(x0,a,m)
+periodo, numeros = numRectMultiplicativos(x0,a,m)
 
 print(periodo)
 print(numeros)
