@@ -21,7 +21,7 @@
     <body>
         Holi
         <button id="btnGetValues">Traer Valores</button>
-        <h4>Números en una dimensión</h4>
+        <h4>Números en una dimensión. El lugar máximo que alcanzó es: <span id="mayor-unadim">...</span></h4>
         <div id="unaDim-contenedor">
             <div class="sqr-unaDim light-off" id="unaDim--10"></div>
             <div class="sqr-unaDim light-off" id="unaDim--9"></div>
@@ -48,6 +48,7 @@
     </body>
 <script>
     let resetArreglo = () =>{
+        document.getElementById("mayor-unadim").innerText = "...";
         let unaDim = document.getElementsByClassName("sqr-unaDim");
         console.log( unaDim );
         for(var i= 0; i < unaDim.length; i++){
@@ -56,30 +57,33 @@
         }
     }
 
+    //Colorear el div correspondiente
     let mostrarColor = (valor)=>{
         let divElemento = document.getElementById( "unaDim-"+valor );
-        divElemento.classList.add("light-off");
+        
         console.log(divElemento);
         console.log("element " + valor);
         divElemento.classList.remove("light-off");
         divElemento.classList.add("light-on");
     }
 
-    let mostrarArreglo = (valores) =>{
+    //Colorear los divs, en un intervalo de 1 segundo
+    let mostrarArreglo = (valores, mayor) =>{
         resetArreglo();
-        console.log(valores[5]);
-        console.log("valores");
         let i = 0;
         var t = setInterval(()=>{
             if(i == valores.length - 1){
                 clearInterval(t);
+                document.getElementById("mayor-unadim").innerText = mayor;
             }
             console.log("i : "+ i);
             mostrarColor(valores[i]);
             i++;
         }, 1000);
+
     };
 
+    //con este botón, se manda a llamar la función en back para traer los valores
     let btnGetValues = document.getElementById('btnGetValues');
     btnGetValues.addEventListener('click',()=>{
         xhttp = new XMLHttpRequest();
@@ -94,8 +98,8 @@
                     var response = JSON.parse( xhttp.responseText );
                     var pos_values = response.pos_values;
                     var mayor = response.mayor;
-                    console.log(response);
-                    mostrarArreglo(pos_values);
+                    mostrarArreglo(pos_values, mayor);
+
                 }else{
                     console.log("no lo trajo bien, hay error");
                 }

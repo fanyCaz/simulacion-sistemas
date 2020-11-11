@@ -17,7 +17,5 @@ def generator():
             pos -=1
         pos_values.append( pos )
         mayor = max(pos,mayor)
-        print(pos)
 
-    print("mayor {}".format(mayor))
     return [pos_values,mayor]
