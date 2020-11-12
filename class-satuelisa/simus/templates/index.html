@@ -1,114 +1,14 @@
 <!DOCTYPE html>
-<html>
-    <style>
-        .light-on{
-            background-color: bisque;
-        }
-        .light-off{
-            background-color: #000;
-        }
-        .sqr-unaDim{
-            width: 20px;
-            height: 20px;
-        }
-        #unaDim-contenedor{
-            margin: 1em;
-            display: grid;
-            grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
-            grid-template-rows: 100%;
-        }
-    </style>
-    <body>
-        Holi
-        <button id="btnGetValues">Traer Valores</button>
-        <h4>Números en una dimensión. El lugar máximo que alcanzó es: <span id="mayor-unadim">...</span></h4>
-        <div id="unaDim-contenedor">
-            <div class="sqr-unaDim light-off" id="unaDim--10"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--9"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--8"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--7"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--6"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--5"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--4"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--3"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--2"></div>
-            <div class="sqr-unaDim light-off" id="unaDim--1"></div><!-- negativos -->
-            <div class="sqr-unaDim light-off" id="unaDim-0"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-1"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-2"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-3"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-4"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-5"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-6"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-7"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-8"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-9"></div>
-            <div class="sqr-unaDim light-off" id="unaDim-10"></div>
-        </div>
-    </body>
-<script>
-    let resetArreglo = () =>{
-        document.getElementById("mayor-unadim").innerText = "...";
-        let unaDim = document.getElementsByClassName("sqr-unaDim");
-        console.log( unaDim );
-        for(var i= 0; i < unaDim.length; i++){
-            unaDim[i].classList.add("light-off");
-            unaDim[i].classList.remove("light-on");
-        }
-    }
+<head>
+    <title>Generadores</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+</head>
+<body>
+    <div class="select-generadores">
+        <button id="select-mixto">Generador Mixto</button>
+        <button id="select-multiplicativo">Generador Multiplicativo</button>
+    </div>
 
-    //Colorear el div correspondiente
-    let mostrarColor = (valor)=>{
-        let divElemento = document.getElementById( "unaDim-"+valor );
-        
-        console.log(divElemento);
-        console.log("element " + valor);
-        divElemento.classList.remove("light-off");
-        divElemento.classList.add("light-on");
-    }
-
-    //Colorear los divs, en un intervalo de 1 segundo
-    let mostrarArreglo = (valores, mayor) =>{
-        resetArreglo();
-        let i = 0;
-        var t = setInterval(()=>{
-            if(i == valores.length - 1){
-                clearInterval(t);
-                document.getElementById("mayor-unadim").innerText = mayor;
-            }
-            console.log("i : "+ i);
-            mostrarColor(valores[i]);
-            i++;
-        }, 1000);
-
-    };
-
-    //con este botón, se manda a llamar la función en back para traer los valores
-    let btnGetValues = document.getElementById('btnGetValues');
-    btnGetValues.addEventListener('click',()=>{
-        xhttp = new XMLHttpRequest();
-        xhttp.open("GET","{{ url_for('brownianValues') }}",true);
-        xhttp.send();
-        xhttp.onreadystatechange = () =>{
-            console.log(xhttp.readyState);
-            if(xhttp.readyState == XMLHttpRequest.DONE){
-                console.log("received, yei");
-                if(xhttp.status == 200){
-                    console.log("si traer bien");
-                    var response = JSON.parse( xhttp.responseText );
-                    var pos_values = response.pos_values;
-                    var mayor = response.mayor;
-                    mostrarArreglo(pos_values, mayor);
-
-                }else{
-                    console.log("no lo trajo bien, hay error");
-                }
-            }else{
-                console.log("not yet, wait for it");
-            }
-        };
-    });
-
-
-</script>
-</html>
+    <script src="{{ url_for('static',filename='javascript/generadores.js') }}">
+    </script>
+</body>

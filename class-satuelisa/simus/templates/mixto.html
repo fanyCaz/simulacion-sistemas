@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Generadores</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+</head>
+<body>
+
+    <div class="form-generador">
+        <h2>Generador Mixto</h2>
+        <form method="POST" id="form-Mixto">
+            <label for="mixto_x0">Valor de 'x0'</label>
+            <input type="text" name="mixto_x0" id="mixto_x0">
+            <label for="mixto_a">Valor de 'a'</label>
+            <input type="text" name="mixto_a" id="mixto_a">
+            <label for="mixto_c">Valor de 'c'</label>
+            <input type="text" name="mixto_c" id="mixto_c">
+            <label for="mixto_m">Valor de 'm'</label>
+            <input type="text" name="mixto_m" id="mixto_m">
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+
+    {% if periodo %}
+    {{ periodo }}
+    {% endif %}
+
+    {% if nums %}
+    {{ nums }}
+    {% endif %}
+</body>
