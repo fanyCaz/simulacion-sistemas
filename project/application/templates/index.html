@@ -3,23 +3,51 @@
     <title>MYSSD</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
 </head>
-<style>
-    .border-canvas{
-        border: 1px solid black;
-    }
-</style>
 <body>
-    <h1>Modelado y Simulación de Sistemas Dinámicos</h1>
-    <h3>Historial de contaminantes en 'ZONA'</h3>
-    <p>Contaminante: </p>
-    <div>
-        <!-- <canvas class="border-canvas" id="tuto" width="150" height="150"></canvas>  -->
-        <canvas class="border-canvas" id="puntos" width="706" height="410"></canvas>
+    <div class="titulos">
+        <h1>Modelado y Simulación de Sistemas Dinámicos</h1>
+        <h3>Historial de contaminantes en 'ZONA'</h3>
+        <p>Contaminante: </p>
     </div>
-    <script src="{{ url_for('static',filename='javascript/index.js') }}">
-    </script>
+    <div class="contenedor-info">
+        <div class="mapa">
+            <button id="btn-prueba">calc prueba</button>
+            <!-- <canvas class="border-canvas" id="tuto" width="150" height="150"></canvas>  -->
+            <canvas class="border-canvas" id="puntos" width="706" height="410"></canvas>
+        </div>
+        <div class="info">
+            <p>info</p>
+        </div>
+    </div>
     <script>
         
+        //con este botón, se manda a llamar la función en back para traer los valores
+        let btnGetValues = document.getElementById('btn-prueba');
+            btnGetValues.addEventListener('click',()=>{
+                console.log("siosijfaoij");
+                xhttp = new XMLHttpRequest();
+                xhttp.open("GET","{{ url_for('prueba') }}",true);
+                xhttp.send();
+                xhttp.onreadystatechange = () =>{
+                    console.log(xhttp.readyState);
+                    console.log('pues pruebaaa');
+                    if(xhttp.readyState == XMLHttpRequest.DONE){
+                        console.log("received, yei");
+                        if(xhttp.status == 200){
+                            console.log("si traer bien");
+                            var response = JSON.parse( xhttp.responseText );
+                            console.log(response);
+
+                        }else{
+                            console.log("no lo trajo bien, hay error");
+                        }
+                    }else{
+                        console.log("not yet, wait for it");
+                    }
+                };
+            });
+
+
         let drawPaht = () =>{
             var canvas = document.getElementById("puntos");
             var context = canvas.getContext('2d');
@@ -29,7 +57,6 @@
                 canvas.style.backgroundImage = 'url(' + "{{ url_for('static', filename='images/espacio.png') }}" + ")";
                 
                 let xPos = 100, yPos = 100;
-                //for(let i = 0; i < 3; i++){
                     
                 var t = setInterval(()=>{
                     if(xPos > canvas.clientWidth || yPos > canvas.clientHeight){
@@ -41,9 +68,8 @@
                     context.fill();
                     xPos += 60;
                     yPos += 60;
+                    console.log("sigue...");
                 }, 1000);
-                    
-                //}
 
                 context.beginPath();
                 context.arc(55,55,50,0,2 * Math.PI);    //x,y,inicio angulo,fin angulo,parte de círculo

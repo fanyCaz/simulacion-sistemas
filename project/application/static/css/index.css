@@ -1,3 +1,23 @@
 .select-generadores{
     margin: 1em;
 }
+
+.border-canvas{
+    border: 1px solid black;
+}
+
+.titulos{
+    width: 100%;
+}
+
+.mapa{
+    width: 800px;
+}
+
+.info{
+    width: 30%;
+}
+
+.contenedor-info{
+    width: 100%;
+}
