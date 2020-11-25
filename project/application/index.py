@@ -7,13 +7,13 @@ app = Flask(__name__)
 def index(name=None):
     return render_template('index.html',name=name)
 
-@app.route('/mes/<mes>', methods=['GET'])
-def datosMes(mes):
-    mesRec = mes
+@app.route('/mes/<mes>/<contaminante>', methods=['GET'])
+def datosMes(mes:int,contaminante:str):
     response = {}
     if request.method == 'GET':
-        print(mesRec)
-        response = { 'Datos' : dts.ValoresDeMes(mesRec) }
+        print(mes)
+        print(contaminante)
+        response = { 'Datos' : dts.ValoresDeMes(mes,contaminante) }
         return response
     else:
         response = {'Datos' : []}

@@ -34,7 +34,7 @@
             btnGetValues.addEventListener('click',()=>{
                 console.log("siosijfaoij");
                 xhttp = new XMLHttpRequest();
-                xhttp.open("GET","{{ url_for('datosMes', mes='05') }}",true);
+                xhttp.open("GET","{{ url_for('datosMes', mes='05',contaminante='PM10') }}",true);
                 xhttp.send();
                 xhttp.onreadystatechange = () =>{
                     console.log(xhttp.readyState);
