@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 import json
+import csv
 
-def prueba():
-    z = pd.Series([1,2,4,np.nan,7,9])
-    print(z)
+def ValoresDeMes(mes: int):
+    path = "./static/datos/{}".format(mes)
+    print(path)
     return 1

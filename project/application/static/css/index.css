@@ -21,3 +21,8 @@
 .contenedor-info{
     width: 100%;
 }
+
+.grafica-contaminante{
+    width: 600px;
+    height: 250px;
+}

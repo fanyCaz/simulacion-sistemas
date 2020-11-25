@@ -6,27 +6,35 @@
 <body>
     <div class="titulos">
         <h1>Modelado y Simulación de Sistemas Dinámicos</h1>
-        <h3>Historial de contaminantes en 'ZONA'</h3>
+        <h3>Historial de contaminantes en Monterrey y su área metropolitana</h3>
         <p>Contaminante: </p>
     </div>
     <div class="contenedor-info">
+        <button id="btn-get-datos">traer datos</button>
         <div class="mapa">
-            <button id="btn-prueba">calc prueba</button>
+            <div id="contaminante-pm10" class="grafica-contaminante"></div>
             <!-- <canvas class="border-canvas" id="tuto" width="150" height="150"></canvas>  -->
-            <canvas class="border-canvas" id="puntos" width="706" height="410"></canvas>
-        </div>
-        <div class="info">
-            <p>info</p>
+            <!-- <canvas class="border-canvas" id="puntos" width="706" height="410"></canvas> -->
         </div>
     </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
+
+        PRUEBA = document.getElementById('contaminante-pm10');
+        Plotly.newPlot(PRUEBA,[{
+            x: [1,2,4,5,6],
+            y: [1,3,5,6,7] } ],
+            {
+                margin: {t : 0}
+            }
+        );
         
         //con este botón, se manda a llamar la función en back para traer los valores
-        let btnGetValues = document.getElementById('btn-prueba');
+        let btnGetValues = document.getElementById('btn-get-datos');
             btnGetValues.addEventListener('click',()=>{
                 console.log("siosijfaoij");
                 xhttp = new XMLHttpRequest();
-                xhttp.open("GET","{{ url_for('prueba') }}",true);
+                xhttp.open("GET","{{ url_for('datosMes', mes='05') }}",true);
                 xhttp.send();
                 xhttp.onreadystatechange = () =>{
                     console.log(xhttp.readyState);
@@ -46,7 +54,6 @@
                     }
                 };
             });
-
 
         let drawPaht = () =>{
             var canvas = document.getElementById("puntos");
@@ -98,7 +105,7 @@
             }
         }
         //draw();
-        drawPaht();
+        //drawPaht();
         //window.onload(draw);
         
     </script>

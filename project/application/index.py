@@ -7,7 +7,14 @@ app = Flask(__name__)
 def index(name=None):
     return render_template('index.html',name=name)
 
-@app.route('/prueba')
-def prueba():
-    z = dts.prueba()
-    return { "vals_prueba" : z }
+@app.route('/mes/<mes>', methods=['GET'])
+def datosMes(mes):
+    mesRec = mes
+    response = {}
+    if request.method == 'GET':
+        print(mesRec)
+        response = { 'Datos' : dts.ValoresDeMes(mesRec) }
+        return response
+    else:
+        response = {'Datos' : []}
+        return response
