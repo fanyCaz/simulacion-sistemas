@@ -8,12 +8,12 @@ def ValoresDeMes(mes: int, contaminante: str):
     path = "{}_2020_{}.csv".format(mes,contaminante)
     thisPath = Path(__file__).parent.absolute()
     filePath = thisPath/'datos'/path
-    #filename = Path(path)
-    print( thisPath )
-    
+    #Obtener path de archivo
+    """print( thisPath )
     print(filePath)
-
-    print(filePath.exists())
+    print(filePath.exists())"""
     datos = pd.read_csv(filePath)
-    print(datos)
+    dFDatos = pd.DataFrame(datos)
+    print(dFDatos)
+    print( type(dFDatos) )
     return 1
