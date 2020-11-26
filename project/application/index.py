@@ -11,8 +11,7 @@ def index(name=None):
 def datosMes(mes:int,contaminante:str):
     response = {}
     if request.method == 'GET':
-        print(mes)
-        print(contaminante)
+        print( f"mes pedido {mes} y contaminante {contaminante}" )
         response = { 'Datos' : dts.ValoresDeMes(mes,contaminante) }
         return response
     else:

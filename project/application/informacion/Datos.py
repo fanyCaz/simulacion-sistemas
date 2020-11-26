@@ -8,12 +8,18 @@ def ValoresDeMes(mes: int, contaminante: str):
     path = "{}_2020_{}.csv".format(mes,contaminante)
     thisPath = Path(__file__).parent.absolute()
     filePath = thisPath/'datos'/path
-    #Obtener path de archivo
-    """print( thisPath )
-    print(filePath)
-    print(filePath.exists())"""
     datos = pd.read_csv(filePath)
     dFDatos = pd.DataFrame(datos)
-    print(dFDatos)
-    print( type(dFDatos) )
-    return 1
+    fechas = dFDatos['fecha']
+    niveles = dFDatos.loc[0:,'0':'23']
+    response = [
+        {
+        'fechas'  : fechas.to_json()
+        },
+        {
+        'niveles' : niveles.to_json()
+        }
+    ]
+    """ print( fechas )
+    print( response ) """
+    return response

@@ -10,8 +10,8 @@
     width: 100%;
 }
 
-.mapa{
-    width: 800px;
+.mapas{
+    width: 100%;
 }
 
 .info{
@@ -22,7 +22,19 @@
     width: 100%;
 }
 
+.container-grafica{
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+}
+
 .grafica-contaminante{
-    width: 600px;
-    height: 250px;
+    width: 450px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.header-grafica{
+    height: 100px;
+    margin-left: 2em;
 }
