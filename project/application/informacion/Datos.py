@@ -18,21 +18,26 @@ def ValoresDeMes(mes: str, contaminante: str):
     y = nivelesAbril.mean()
     y = y.fillna(y.bfill())
     #print(y.to_json())
-    print(fechas)
+    #print(fechas)
     
     niveles = y
     print(niveles)
+    print( int( niveles.argmax()) )
+    print( max(niveles) )
     #niveles = dFDatos.loc[0:,'0':'23']
     response = [
         {
-        'fechas'  : fechas.to_json()
+            'fechas'  : fechas.to_json()
         },
         {
-        'niveles' : niveles.to_json()
+            'niveles' : niveles.to_json()
+        },
+        {
+            'hora_maxima' : int(niveles.argmax()),
         }
     ]
     """ print( fechas )
     print( response ) """
     return response
 
-#ValoresDeMes('05','PM10')
+ValoresDeMes('05','PM10')

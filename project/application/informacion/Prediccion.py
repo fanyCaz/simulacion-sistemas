@@ -19,6 +19,11 @@ filePath = thisPath/'datos'/path
 df = pd.read_csv(filePath)
 #ABRIL
 mes = '05'
+""" def datosPrediccion(contaminante:str):
+    
+    #docstring
+    
+    pass """
 pathAbril = "{}_2020_{}.csv".format(mes,contaminante)
 filePathAbril = thisPath/'datos'/pathAbril
 
@@ -73,20 +78,21 @@ print(results.summary().tables[1])
 pred = results.get_prediction(dynamic=False)
 pred_ci = pred.conf_int()
 
-ax = y['6':].plot(label='observed')
+ax = y['0':].plot(label='observados')
 pred.predicted_mean.plot(ax=ax, label='prediccion',alpha=.7)
 print("Predichos")
 #Datos de prediccion pred_ci
 #print(pred)
+print(type(pred_ci))
 print(pred_ci)
 ax.fill_between(pred_ci.index, pred_ci.iloc[:,0],pred_ci.iloc[:,1], color='k',alpha=.2)
 
 ax.set_xlabel('Horas')
 ax.set_ylabel('Niveles PM10')
 plt.legend()
-#plt.show()
+plt.show()
 print(ax)
-#print(y)
+#print(y)-
 
 y_forecasted = pred.predicted_mean
 y_truth = y['0':]
@@ -96,3 +102,5 @@ print("Validacion de error : {}".format( round(mse,2) ) )
 
 pred_uc = results.get_forecast(steps=500)
 pred_ci = pred_uc.conf_int()
+pred_ci.to_csv('prediccion_pm10.csv')
+print(y)
