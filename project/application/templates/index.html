@@ -17,7 +17,7 @@
 
         </div>
         <h2 class="titulo-contaminantes">- CONTAMINANTES -</h2>
-        <p>Da clic en algún contaminante para conocer más sobre ellos</p>
+        <p style="text-align: center;">Da clic en algún contaminante para conocer más sobre ellos</p>
         <div class="nav-contaminantes">
             <div id="btn-get-datos-PM10" class="cont-selector">PM<sub>10</sub></div>
             <div id="btn-get-datos-PM25" class="cont-selector">PM<sub>2.5</sub></div>
@@ -44,22 +44,19 @@
                 </div>
             </div>
         </div>
-        <div class="mapas">
-        </div>
     </div>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static',filename='javascript/index.js') }}" ></script>
     <script>
 
         const contaminantesTipos = {
-            PM10 : 'PM10',
-            CO : 'CO',
+            PM10  : 'PM10',
+            CO    : 'CO',
             Ozono : 'Ozono',
-            PM25 : 'PM25',
-            SO2 : 'SO2',
-            NO2 : 'NO2'
+            PM25  : 'PM25',
+            SO2   : 'SO2',
+            NO2   : 'NO2'
         };
-
 
         //con este botón, se manda a llamar la función en back para traer los valores
         //BOTON PM10
@@ -153,9 +150,6 @@
                 console.log("boo too bad")
             }
         }
-        //draw();
-        //drawPaht();
-        //window.onload(draw);
         
     </script>
 </body>

@@ -17,3 +17,8 @@ def datosMes(mes:int,contaminante:str):
     else:
         response = {'Datos' : []}
         return response
+
+@app.route('/prediccion/<mes>/<contaminante>',methods=['GET'])
+def prediccionMes(mes:int,contaminante:str):
+    response = 1
+    return response
