@@ -26,131 +26,25 @@
             <div id="btn-get-datos-CO" class="cont-selector">CO<sub>2</sub></div>
             <div id="btn-get-datos-NO2" class="cont-selector">NO<sub>2</sub></div>
         </div>
-        <div id="contaminante-info">
-            <div class="container-grafica" id="cont-PM10">
+        <div id="contaminante-info" style="display: none;">
+            <div class="container-grafica" id="cont-PM10" >
                 <div class="header-grafica">
-                    <p><strong>Contaminante PM<sub>10</sub>  LOQUE ES</p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <div class="info-actual">
+                        <p>Contaminante LOQUE ES</p>
+                        <p id="info-cont"></p>
+                        <p class="contaminante-hora" ><span id="hora-cont"></span></p>
+                    </div>
+                    <div class="info-prediccion">
+                        <p>prediccionjiones</p>
+                    </div>
                 </div>
                 <div class="body-grafica">
-                    <p><span id="hora-cont-PM10"></span></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica" id="cont-pm-10--">
-                <div class="header-grafica">
-                    <p><strong>Contaminante <span class="titulo-contaminante"></span>
-                    </p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                </div>
-                <div class="body-grafica">
-                    <p></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica" id="cont-pm-10--">
-                <div class="header-grafica">
-                    <p><strong>Contaminante <span class="titulo-contaminante"></span>
-                    </p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                </div>
-                <div class="body-grafica">
-                    <p></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica" id="cont-pm-10--">
-                <div class="header-grafica">
-                    <p><strong>Contaminante <span class="titulo-contaminante"></span>
-                    </p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                </div>
-                <div class="body-grafica">
-                    <p></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica" id="cont-pm-10--">
-                <div class="header-grafica">
-                    <p><strong>Contaminante <span class="titulo-contaminante"></span>
-                    </p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                </div>
-                <div class="body-grafica">
-                    <p></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica" id="cont-pm-10--">
-                <div class="header-grafica">
-                    <p><strong>Contaminante <span class="titulo-contaminante"></span>
-                    </p>
-                    <!-- <button id="btn-get-datos-PM10">Ver niveles de contaminación</button> -->
-                </div>
-                <div class="body-grafica">
-                    <p></p>
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
+                    <div id="contaminante-grafica" class="grafica-actual"></div>
+                    <div id="contaminante-prediccion" class="grafica-prediccion"></div>
                 </div>
             </div>
         </div>
         <div class="mapas">
-            <!-- <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante PM10 </strong> Promedio <span id="dia-contaminante-PM10"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-PM10">Ver niveles de contaminación</button>
-                </div>
-                <div class="body-grafica">
-                    <div id="contaminante-PM10" class="grafica-contaminante"></div>
-                    <div id="contaminante-PM10-prediccion" class="grafica-contaminante"></div>
-                </div>
-            </div>
-            <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante PM 2.5</strong> Promedio <span id="dia-contaminante-PM25"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-PM25">Ver niveles de contaminación</button>
-                </div>
-                <div id="contaminante-PM25" class="grafica-contaminante"></div>
-                <div id="contaminante-PM25-prediccion" class="grafica-contaminante"></div>
-            </div>
-            <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante CO</strong> Promedio <span id="dia-contaminante-CO"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-CO">Ver niveles de contaminación</button>
-                </div>
-                <div id="contaminante-CO" class="grafica-contaminante"></div>
-            </div>
-            <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante NO 2</strong> Promedio <span id="dia-contaminante-NO2"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-NO2">Ver niveles de contaminación</button>
-                </div>
-                <div id="contaminante-NO2" class="grafica-contaminante"></div>
-            </div>
-            <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante Ozono</strong> Promedio <span id="dia-contaminante-Ozono"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-Ozono">Ver niveles de contaminación</button>
-                </div>
-                <div id="contaminante-Ozono" class="grafica-contaminante"></div>
-            </div>
-            <div class="container-grafica">
-                <div class="header-grafica">
-                    <p><strong>Contaminante SO2</strong> Promedio <span id="dia-contaminante-SO2"></span> de nivel por hora</p>
-                    <button id="btn-get-datos-SO2">Ver niveles de contaminación</button>
-                </div>
-                <div id="contaminante-SO2" class="grafica-contaminante"></div>
-            </div> -->
         </div>
     </div>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -171,55 +65,45 @@
         //BOTON PM10
         let btnGetValuesPM10 = document.getElementById('btn-get-datos-PM10');
         btnGetValuesPM10.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='PM10') }}";
-
             traerNivelesContaminante(urlContaminante,contaminantesTipos.PM10);
         });
 
         //BOTON CO
         let btnGetValuesCO = document.getElementById('btn-get-datos-CO');
         btnGetValuesCO.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='CO') }}";
-
-            //traerNivelesContaminante(urlContaminante,contaminantesTipos.CO);        
+            traerNivelesContaminante(urlContaminante,contaminantesTipos.CO);        
         });
 
         //BOTON OZONO
         let btnGetValuesOzono = document.getElementById('btn-get-datos-Ozono');
         btnGetValuesOzono.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='Ozono') }}";
-
-            //traerNivelesContaminante(urlContaminante,contaminantesTipos.Ozono);            
+            traerNivelesContaminante(urlContaminante,contaminantesTipos.Ozono);            
         });
 
         //BOTON PM 2.5
         let btnGetValuesPM25 = document.getElementById('btn-get-datos-PM25');
         btnGetValuesPM25.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='PM25') }}";
-
-            //traerNivelesContaminante(urlContaminante,contaminantesTipos.PM25);            
+            traerNivelesContaminante(urlContaminante,contaminantesTipos.PM25);            
         });
 
         //BOTON SO2
         let btnGetValuesSO2 = document.getElementById('btn-get-datos-SO2');
         btnGetValuesSO2.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='SO2') }}";
-
-            //traerNivelesContaminante(urlContaminante,contaminantesTipos.SO2);            
+            traerNivelesContaminante(urlContaminante,contaminantesTipos.SO2);            
         });
+
         //BOTON NO2
         let btnGetValuesNO2 = document.getElementById('btn-get-datos-NO2');
         btnGetValuesNO2.addEventListener('click',()=>{
-            
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='NO2') }}";
-
-            //traerNivelesContaminante(urlContaminante,contaminantesTipos.NO2);            
+            traerNivelesContaminante(urlContaminante,contaminantesTipos.NO2);            
         });
+
         let drawPaht = () =>{
             var canvas = document.getElementById("puntos");
             var context = canvas.getContext('2d');

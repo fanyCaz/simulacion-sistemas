@@ -64,8 +64,21 @@ body{
     height: 1.5em;
 }
 
-.cont-pm-10{
+.header-grafica{
+    width: 100%;
+    margin-left: 2em;
+}
 
+.info-actual{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.info-prediccion{
+    width: 50%;
+    height: 100%;
+    float: right;
 }
 
 .mapas{
@@ -87,13 +100,24 @@ body{
     border: 1px solid #000;
 }
 
+.contaminante-hora{
+
+}
+
 .grafica-contaminante{
     width: 450px;
     height: 350px;
     overflow: hidden;
 }
 
-.header-grafica{
-    width: 900px;
-    margin-left: 2em;
+.grafica-actual{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.grafica-prediccion{
+    width: 50%;
+    height: 100%;
+    float: right;
 }
