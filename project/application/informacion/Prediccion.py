@@ -2,6 +2,7 @@ import warnings
 import itertools
 import pandas as pd
 import numpy as np
+import csv
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -12,18 +13,13 @@ plt.style.use('fivethirtyeight')
 
 #MAYO
 mes= '05'
-contaminante = 'PM10'
+contaminante = 'NO2'
 path = "{}_2020_{}.csv".format(mes,contaminante)
 thisPath = Path(__file__).parent.absolute()
 filePath = thisPath/'datos'/path
 df = pd.read_csv(filePath)
 #ABRIL
 mes = '05'
-""" def datosPrediccion(contaminante:str):
-    
-    #docstring
-    
-    pass """
 pathAbril = "{}_2020_{}.csv".format(mes,contaminante)
 filePathAbril = thisPath/'datos'/pathAbril
 
@@ -74,25 +70,38 @@ print(results.summary().tables[1])
 #results.plot_diagnostics(figsize=(16,8))
 #plt.show()
 
-#FORECASTING RIGHT?
+#FORECASTING
 pred = results.get_prediction(dynamic=False)
 pred_ci = pred.conf_int()
+
+#PREDICCIONES
+valoresPredecidos = []
+minimos = []
+for i in pred_ci.iloc[:,0]:
+    minimos.append(i)
+
+maximos = []
+for i in pred_ci.iloc[:,1]:
+    maximos.append(i)
+
+for i in range(0,len(maximos)):
+    val = maximos[i] - ( ( maximos[i] - minimos[i] ) / 2 )
+    valoresPredecidos.append(val)
+print(valoresPredecidos)
+mis = pd.DataFrame(valoresPredecidos)
+mis.to_csv('promedios_no2.csv',header=False)
+#FIN PREDICCIONES
 
 ax = y['0':].plot(label='observados')
 pred.predicted_mean.plot(ax=ax, label='prediccion',alpha=.7)
 print("Predichos")
 #Datos de prediccion pred_ci
-#print(pred)
-print(type(pred_ci))
-print(pred_ci)
+pred_ci.to_csv('prediccion_no2.csv')
 ax.fill_between(pred_ci.index, pred_ci.iloc[:,0],pred_ci.iloc[:,1], color='k',alpha=.2)
-
 ax.set_xlabel('Horas')
-ax.set_ylabel('Niveles PM10')
+ax.set_ylabel('Niveles NO2')
 plt.legend()
-plt.show()
-print(ax)
-#print(y)-
+#plt.show()
 
 y_forecasted = pred.predicted_mean
 y_truth = y['0':]
@@ -102,5 +111,3 @@ print("Validacion de error : {}".format( round(mse,2) ) )
 
 pred_uc = results.get_forecast(steps=500)
 pred_ci = pred_uc.conf_int()
-pred_ci.to_csv('prediccion_pm10.csv')
-print(y)
