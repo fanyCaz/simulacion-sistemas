@@ -12,12 +12,12 @@ import datetime
 plt.style.use('fivethirtyeight')
 
 #MAYO
-mes= '05'
+#mes= '05'
 contaminante = 'NO2'
-path = "{}_2020_{}.csv".format(mes,contaminante)
+""" path = "{}_2020_{}.csv".format(mes,contaminante)
 thisPath = Path(__file__).parent.absolute()
 filePath = thisPath/'datos'/path
-df = pd.read_csv(filePath)
+df = pd.read_csv(filePath) """
 #ABRIL
 mes = '05'
 pathAbril = "{}_2020_{}.csv".format(mes,contaminante)
@@ -37,8 +37,6 @@ y = y.fillna(y.bfill())
 rcParams['figure.figsize'] = 18,8
 
 decomposition = sm.tsa.seasonal_decompose(y,model='additive',period=4)
-#fig = decomposition.plot()
-#plt.show()
 
 #ARIMA
 d = p = q = range(0,2)
@@ -46,11 +44,11 @@ pdq = list(itertools.product(p,d,q))
 
 seasonal_pdq = [(x[0],x[1],x[2],12) for x in list(itertools.product(p,d,q))]
 
-print("SARIMAX {} x {} ".format(pdq[1],seasonal_pdq[1]))
+""" print("SARIMAX {} x {} ".format(pdq[1],seasonal_pdq[1]))
 print("SARIMAX {} x {} ".format(pdq[1],seasonal_pdq[2]))
 print("SARIMAX {} x {} ".format(pdq[2],seasonal_pdq[3]))
 print("SARIMAX {} x {} ".format(pdq[2],seasonal_pdq[4]))
-print(len(y))
+print(len(y))"""
 warnings.filterwarnings("ignore")
 
 for param in pdq:
@@ -58,13 +56,12 @@ for param in pdq:
         try:
             mod = sm.tsa.statespace.SARIMAX(y,order=param,seasonal_order=param_seasonal,enforce_stationarity=False,enforce_invertibility=False)
             result = mod.fit()
-            #print("ARIMA {} x {} 12 - AIC:{}".format(param,param_seasonal,result.aic))
         except:
             continue
 
 mod = sm.tsa.statespace.SARIMAX(y,order=(1,1,1),seasonal_order=(1,1,1,4),enforce_stationarity=False,enforce_invertibility=False)
 results = mod.fit()
-
+#Autoregressive Integrated Moving Average.
 print(results.summary().tables[1])
 
 #results.plot_diagnostics(figsize=(16,8))

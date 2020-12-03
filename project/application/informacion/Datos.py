@@ -48,4 +48,4 @@ def ValoresDeMes(mes: str, contaminante: str):
     print( response ) """
     return response
 
-ValoresDeMes('05','PM10')
+#ValoresDeMes('05','PM10')
