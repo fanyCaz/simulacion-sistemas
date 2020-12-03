@@ -76,7 +76,7 @@ body{
     height: 90%;
     float: left;
     background-color: #03829d;
-    border-radius: 5%;
+    border-top-right-radius: 5%;
     padding: 1em;
     color: #fff;
 }

@@ -2,15 +2,15 @@
 var info = (contaminante) => {
     switch(contaminante){
         case 'PM10' :
-            return '<br/>La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>';
+            return 'La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>';
         case 'CO' :
-            return '<br/>Se produce cuando los combustibles a base de carbono, tales como queroseno, <br/>gasolina, gas natural, propano, carbón o madera se queman sin suficiente oxígeno, <br/>lo que provoca una combustión incompleta.<br/>';
+            return 'Se produce cuando los combustibles a base de carbono, tales como queroseno, <br/>gasolina, gas natural, propano, carbón o madera se queman sin suficiente oxígeno, <br/>lo que provoca una combustión incompleta.<br/>';
         case 'Ozono' :            
-            return '<br/>Debido a la reacción química entre los óxidos de nitrógeno (NOx)<br/>y los compuestos orgánicos volátiles (COV) en presencia de luz solar.<br/>Las principales fuentes de emisión de los NOx y los COVson los vehículos que utilizan combustibles fósiles,<br/>fugas de gas LP y gas natural, las industrias y las estaciones de gasolina.<br/>';
+            return 'Debido a la reacción química entre los óxidos de nitrógeno (NOx)<br/>y los compuestos orgánicos volátiles (COV) en presencia de luz solar.<br/>Las principales fuentes de emisión de los NOx y los COVson los vehículos que utilizan combustibles fósiles,<br/>fugas de gas LP y gas natural, las industrias y las estaciones de gasolina.<br/>';
         case 'PM25' :
-            return '<br/>La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>En relación con sus efectos sobre la salud se suelen distinguir; las PM10<br/>(partículas “torácicas” menores de 2.5 μm que pueden penetrar hasta las vías respiratorias bajas)<br/> ';
+            return 'La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>En relación con sus efectos sobre la salud se suelen distinguir; las PM10<br/>(partículas “torácicas” menores de 2.5 μm que pueden penetrar hasta las vías respiratorias bajas)<br/> ';
         case 'SO2' :
-            return '<br/>Esta es causada principalmente por la combustión de productos petrolíferos<br/>y la quema de carbón en centrales eléctricas y calefacciones centrales. <br/>Existen también algunas fuentes naturales, como es el caso de los volcanes.<br/>El SO2 también se emplea en la industria del papel como agente blanqueador.<br/>';
+            return 'Esta es causada principalmente por la combustión de productos petrolíferos<br/>y la quema de carbón en centrales eléctricas y calefacciones centrales. <br/>Existen también algunas fuentes naturales, como es el caso de los volcanes.<br/>El SO2 también se emplea en la industria del papel como agente blanqueador.<br/>';
         case 'NO2' :
             return '<br/>Es un gas más denso que el aire color marrón rojizo de olor acre. <br/>Se toma como referencia para medir los niveles de contaminación entre las muchas <br/>sustancias que emiten los vehículos a motor, como el dióxido y monóxido de carbono, <br/>los óxidos de azufre o partículas en suspensión.<br/>';
     }
@@ -54,12 +54,44 @@ var efectos = (contaminante) =>{
     }
 }
 
+let nombreCont = (contaminante)=>{
+    switch(contaminante){
+        case 'PM10' :
+            return 'Partículas gruesas';
+        case 'CO' :
+            return 'Monóxido de Carbono';
+        case 'Ozono' :            
+            return 'Ozono';
+        case 'PM25' :
+            return 'Partículas finas';
+        case 'SO2' :
+            return 'Dióxido de Azufre';
+        case 'NO2' :
+            return 'Dióxido de Nitrógeno';
+    }
+}
+
+let horaMaxima = (hora) =>{
+    if( hora < 12){
+        return 'La hora con más nivel de este contaminante es antes de mediodía, a las '+ hora + ' horas';
+    }else if(hora < 13){
+        return 'La hora con más nivel de este contaminante es a mediodía';
+    }else if(hora < 18){
+        return 'La hora con más nivel de este contaminante es en la tarde, a las '+ hora + ' horas';
+    }else{
+        return 'La hora con más nivel de este contaminante es a partir de la noche, a las '+ hora + ' horas';
+    }
+}
+
 let imprimirGraficaReal = (contaminante,fechas,niveles,hora_max,prediccionCont) =>{
     console.log(prediccionCont["0.0"][1] );
     //HTML
         //HORA
         let horaMax = document.getElementById('hora-cont');
-        horaMax.innerHTML = "La hora con mayor nivel de contaminante es a las " + hora_max + " horas";
+        horaMax.innerHTML = horaMaxima(hora_max);
+        //NOMBRE
+        let nombreContaminante = document.getElementById('nombre-cont');
+        nombreContaminante.innerHTML = nombreCont(contaminante);
         //INFO
         let infoCont = document.getElementById('info-cont');
         console.log(contaminante);

@@ -15,14 +15,24 @@
     </div>
     <div class="contenedor-info">
         <div class="general-info">
-            <p>La zona metropolitana de Nuevo León tiene un problema de contaminación. </p>
+            <p>La zona metropolitana de Nuevo León tiene un problema de contaminación. Eso ya es conocido por todos.</p>
             <p>Nosotros como ciudadanos podemos creer que no tenemos otra alternativa más que aceptar lo que tenemos.</p>
-            <p>La verdad es que no es así; si tenemos información y voluntad para cambiar nuestro al rededor.</p>
-            <p>Los siguientes son datos históricos y predicciones que podemos usar para conocer nuestro entorno.</p>
-
+            <p>La verdad es que no es así; si tenemos información y voluntad para cambiar nuestro al rededor.
+                Sobre todo si afecta algo tan importante como nuestra salud y la salud de a los que queremos.
+            </p>
+            <p>Los siguientes son datos históricos sobre como los niveles de contaminación son ahora, 
+                y cómo podrían llegar a comportarse si dejamos que el caos de nuestra ciudad nos consuma.</p>
+            <h4>CONTACTO PARA CONOCER MÁS Y CÓMO PUEDES CAMBIAR TU ENTORNO</h4>
+            <p><a href="https://www.who.int/es/about/who-we-are/contact-us">Contacto con la Organización Mundial de la Salud</a></p>
+            <p>Teléfono para denunciar en México <a href="tel:01 800 776 33 72">01 800 776 33 72</a></p>
+            <p>Profeco Procuraduría Federal de Protección al Ambiente</p>
+            <p><a href="mailto: denuncias@profepa.gob.mx">denuncias@profepa.gob.mx</a></p>
+            <p><a href="http://www.profepa.gob.mx/innovaportal/v/4974/1/mx/que_puedes_denunciar.html">Denuncia al contaminante</a></p>
         </div>
         <h2 class="titulo-contaminantes">- CONTAMINANTES -</h2>
         <p style="text-align: center;">Da clic en algún contaminante para conocer más sobre ellos</p>
+        <p style="text-align: center;">La gráfica que verás tendrá dos valores: Reales y Predicciones. 
+            Las predicciones es a lo que no queremos llegar, y lo Real es cómo se comportan estos contaminantes ahora.</p>
         <div class="nav-contaminantes">
             <div id="btn-get-datos-PM10" class="cont-selector">PM<sub>10</sub></div>
             <div id="btn-get-datos-PM25" class="cont-selector">PM<sub>2.5</sub></div>
@@ -35,11 +45,13 @@
             <div class="container-grafica" id="cont-PM10" >
                 <div class="header-grafica">
                     <div class="info-actual">
-                            <h4>¿QUÉ ES ESTE CONTAMINANTE?</h4>
-                            <p id="info-cont"></p>
-                        <p class="contaminante-hora" ><span id="hora-cont"></span></p>
+                        <h3 id="nombre-cont"></h3>
+                        <h4>¿QUÉ ES ESTE CONTAMINANTE?</h4>
+                        <p id="info-cont"></p>
                         <h4>¿QUÉ PUEDE CAUSAR?</h4>
                         <p id="causa-cont"></p>
+                        <h4>HORA MÁS PROBLEMÁTICA</h4>
+                        <p class="contaminante-hora"><span id="hora-cont"></span></p>
                     </div>
                     <div class="info-causa">
                         
