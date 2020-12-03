@@ -2,17 +2,17 @@
 var info = (contaminante) => {
     switch(contaminante){
         case 'PM10' :
-            return 'info PM10';
+            return '¿Que es?: <br/>La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>En relación con sus efectos sobre la salud se suelen distinguir; las PM10<br/>(partículas “torácicas” menores de 10 μm que pueden penetrar hasta las vías respiratorias bajas)<br/> Sus efectos son: <br/>Numerosas enfermedades respiratorias como el asma<br/>problemas cardiovasculares<br/>cáncer de pulmón';
         case 'CO' :
-            return 'info CO';
-        case 'Ozono' :
-            return 'info Ozono';
+            return '¿Que es?: <br/>Se produce cuando los combustibles a base de carbono, tales como queroseno, <br/>gasolina, gas natural, propano, carbón o madera se queman sin suficiente oxígeno, <br/>lo que provoca una combustión incompleta.<br/>Sus efectos son: <br/>Envenenamiento';
+        case 'Ozono' :            
+            return '¿Que es?: <br/>Debido a la reacción química entre los óxidos de nitrógeno (NOx)<br/>y los compuestos orgánicos volátiles (COV) en presencia de luz solar.<br/>Las principales fuentes de emisión de los NOx y los COVson los vehículos que utilizan combustibles fósiles,<br/>fugas de gas LP y gas natural, las industrias y las estaciones de gasolina.<br/>Sus efectos son:<br/>Al ser un contaminante ambiental, sus elevadas concentraciones puede provocar daños en la salud<br/>como irritar el sistema respiratorio, agravar el asma y las enfermedades pulmonares crónicas,<br/>reducir la función pulmonar';
         case 'PM25' :
-            return 'info PM25';
+            return '¿Que es?: <br/>La combustión de carburantes fósiles generada por el tráfico<br/>(una de las principales fuentes de contaminación por partículas en las ciudades)<br/>puede producir diversos tipos de partículas: partículas grandes,<br/>por la liberación de materiales inquemados (cenizas volátiles),<br/>partículas finas, formadas por la condensación de materiales vaporizados durante la combustión,<br/>y partículas secundarias, mediante reacciones atmosféricas de contaminantes desprendidos como gases.<br/>En relación con sus efectos sobre la salud se suelen distinguir; las PM10<br/>(partículas “torácicas” menores de 2.5 μm que pueden penetrar hasta las vías respiratorias bajas)<br/> Sus efectos son: <br/>Numerosas enfermedades respiratorias como el asma<br/>problemas cardiovasculares<br/>cáncer de pulmón';
         case 'SO2' :
-            return 'info SO2';
+            return '¿Que es?: <br/>Esta es causada principalmente por la combustión de productos petrolíferos<br/>y la quema de carbón en centrales eléctricas y calefacciones centrales. <br/>Existen también algunas fuentes naturales, como es el caso de los volcanes.<br/>El SO2 también se emplea en la industria del papel como agente blanqueador.<br/>Sus efectos son: <br/>•Dificultad para respirar.<br/>•Inflamación de las vías respiratorias<br/>•Irritación ocular por formación de ácido sulfuroso sobre las mucosas húmedas<br/>•Alteraciones psíquicas <br/>•Edema pulmonar<br/>•Paro cardíaco<br/>•Colapso circulatorio<br/>•Queratitis';
         case 'NO2' :
-            return 'info NO2';
+            return '¿Que es?: <br/>Es un gas más denso que el aire color marrón rojizo de olor acre. <br/>Se toma como referencia para medir los niveles de contaminación entre las muchas <br/>sustancias que emiten los vehículos a motor, como el dióxido y monóxido de carbono, <br/>los óxidos de azufre o partículas en suspensión.<br/>Sus efectos son: <br/>Esto afecta a las vías respiratorias y puede agravar enfermedades cardiovasculares. <br/>Los síntomas de los niños con bronquitis o asma se agravan. <br/>En general, en infantes se ha observado un menor desarrollo de la capacidad pulmonar.';
     }
 };
 
