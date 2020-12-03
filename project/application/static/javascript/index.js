@@ -97,7 +97,7 @@ let imprimirGraficaReal = (contaminante,fechas,niveles,hora_max,prediccionCont) 
                 }
             ]; */
             Plotly.newPlot(GRAFICA, data, layout);
-
+            document.querySelector('[data-title="Autoscale"]').click();
 }
 
 let traerNivelesContaminante = (url,contaminante)=>{
