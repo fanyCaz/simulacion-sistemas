@@ -3,6 +3,11 @@
     <title>MYSSD</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
 </head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
 <body>
     <div class="titulos">
         <!-- <h1 class="main-title">Modelado y Simulación de Sistemas Dinámicos</h1> -->
@@ -23,24 +28,26 @@
             <div id="btn-get-datos-PM25" class="cont-selector">PM<sub>2.5</sub></div>
             <div id="btn-get-datos-SO2" class="cont-selector">SO<sub>2</sub></div>
             <div id="btn-get-datos-Ozono" class="cont-selector">0zono</div>
-            <div id="btn-get-datos-CO" class="cont-selector">CO<sub>2</sub></div>
+            <div id="btn-get-datos-CO" class="cont-selector">CO</div>
             <div id="btn-get-datos-NO2" class="cont-selector">NO<sub>2</sub></div>
         </div>
         <div id="contaminante-info" style="display: none;">
             <div class="container-grafica" id="cont-PM10" >
                 <div class="header-grafica">
                     <div class="info-actual">
-                        <p>Contaminante LOQUE ES</p>
-                        <p id="info-cont"></p>
+                            <h4>¿QUÉ ES ESTE CONTAMINANTE?</h4>
+                            <p id="info-cont"></p>
                         <p class="contaminante-hora" ><span id="hora-cont"></span></p>
+                        <h4>¿QUÉ PUEDE CAUSAR?</h4>
+                        <p id="causa-cont"></p>
                     </div>
-                    <div class="info-prediccion">
-                        <p>prediccionjiones</p>
+                    <div class="info-causa">
+                        
                     </div>
                 </div>
                 <div class="body-grafica">
                     <div id="contaminante-grafica" class="grafica-actual"></div>
-                    <div id="contaminante-prediccion" class="grafica-prediccion"></div>
+                    <!-- <div id="contaminante-prediccion" class="grafica-prediccion"></div> -->
                 </div>
             </div>
         </div>
