@@ -11,13 +11,7 @@ from pylab import rcParams
 import datetime
 plt.style.use('fivethirtyeight')
 
-#MAYO
-#mes= '05'
 contaminante = 'NO2'
-""" path = "{}_2020_{}.csv".format(mes,contaminante)
-thisPath = Path(__file__).parent.absolute()
-filePath = thisPath/'datos'/path
-df = pd.read_csv(filePath) """
 #ABRIL
 mes = '05'
 pathAbril = "{}_2020_{}.csv".format(mes,contaminante)
@@ -44,11 +38,6 @@ pdq = list(itertools.product(p,d,q))
 
 seasonal_pdq = [(x[0],x[1],x[2],12) for x in list(itertools.product(p,d,q))]
 
-""" print("SARIMAX {} x {} ".format(pdq[1],seasonal_pdq[1]))
-print("SARIMAX {} x {} ".format(pdq[1],seasonal_pdq[2]))
-print("SARIMAX {} x {} ".format(pdq[2],seasonal_pdq[3]))
-print("SARIMAX {} x {} ".format(pdq[2],seasonal_pdq[4]))
-print(len(y))"""
 warnings.filterwarnings("ignore")
 
 for param in pdq:
@@ -63,9 +52,6 @@ mod = sm.tsa.statespace.SARIMAX(y,order=(1,1,1),seasonal_order=(1,1,1,4),enforce
 results = mod.fit()
 #Autoregressive Integrated Moving Average.
 print(results.summary().tables[1])
-
-#results.plot_diagnostics(figsize=(16,8))
-#plt.show()
 
 #FORECASTING
 pred = results.get_prediction(dynamic=False)
@@ -91,14 +77,12 @@ mis.to_csv('promedios_no2.csv',header=False)
 
 ax = y['0':].plot(label='observados')
 pred.predicted_mean.plot(ax=ax, label='prediccion',alpha=.7)
-print("Predichos")
 #Datos de prediccion pred_ci
 pred_ci.to_csv('prediccion_no2.csv')
 ax.fill_between(pred_ci.index, pred_ci.iloc[:,0],pred_ci.iloc[:,1], color='k',alpha=.2)
 ax.set_xlabel('Horas')
 ax.set_ylabel('Niveles NO2')
 plt.legend()
-#plt.show()
 
 y_forecasted = pred.predicted_mean
 y_truth = y['0':]

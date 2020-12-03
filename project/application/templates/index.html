@@ -100,56 +100,6 @@
             var urlContaminante = "{{ url_for('datosMes', mes='05',contaminante='NO2') }}";
             traerNivelesContaminante(urlContaminante,contaminantesTipos.NO2);            
         });
-
-        let drawPaht = () =>{
-            var canvas = document.getElementById("puntos");
-            var context = canvas.getContext('2d');
-            if(canvas.getContext){
-                //Background is static
-                var b64 = canvas.toDataURL();
-                canvas.style.backgroundImage = 'url(' + "{{ url_for('static', filename='images/espacio.png') }}" + ")";
-                
-                let xPos = 100, yPos = 100;
-                    
-                var t = setInterval(()=>{
-                    if(xPos > canvas.clientWidth || yPos > canvas.clientHeight){
-                        clearInterval(t);
-                    }
-                    context.beginPath();
-                    context.arc(xPos,yPos,20,0,2*Math.PI);
-                    context.fillStyle = 'rgb(128,128,128)';
-                    context.fill();
-                    xPos += 60;
-                    yPos += 60;
-                    console.log("sigue...");
-                }, 1000);
-
-                context.beginPath();
-                context.arc(55,55,50,0,2 * Math.PI);    //x,y,inicio angulo,fin angulo,parte de círculo
-                
-                context.stroke();
-            }else{
-                console.log("nah");
-            }
-        }
-
-        let draw = ()=>{
-            var canvas = document.getElementById("tuto");
-            if(canvas.getContext){
-                var context = canvas.getContext('2d');
-                context.fillStyle = 'rgb(200,0,0)';
-                context.fillRect(10,10,50,50);  //de rojo solo esta parte de los pixeles
-
-                context.fillStyle = 'rgba(0,0,200,0.5)';
-                context.fillRect(30,30,50,50);
-
-                context.strokeRect(20,20,90,09);
-                context.clearRect(20,25,20,20);
-                
-            }else{
-                console.log("boo too bad")
-            }
-        }
         
     </script>
 </body>

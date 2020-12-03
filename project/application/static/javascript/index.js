@@ -84,18 +84,6 @@ let imprimirGraficaReal = (contaminante,fechas,niveles,hora_max,prediccionCont) 
                     range: [0,23]
                 }
             };
-
-            //MOSTRAR GRAFICA
-            /* console.log(nivelesContaminanteDia);
-            var contadorDia = 0;
-            var data = [
-                {
-                    title: 'Niveles de ' + contaminante,
-                    x: hours,
-                    y: nivelesContaminanteDia,
-                    type: 'scatter',
-                }
-            ]; */
             Plotly.newPlot(GRAFICA, data, layout);
             document.querySelector('[data-title="Autoscale"]').click();
 }
