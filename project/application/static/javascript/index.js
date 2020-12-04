@@ -12,7 +12,7 @@ var info = (contaminante) => {
         case 'SO2' :
             return 'Esta es causada principalmente por la combustión de productos petrolíferos<br/>y la quema de carbón en centrales eléctricas y calefacciones centrales. <br/>Existen también algunas fuentes naturales, como es el caso de los volcanes.<br/>El SO2 también se emplea en la industria del papel como agente blanqueador.<br/>';
         case 'NO2' :
-            return '<br/>Es un gas más denso que el aire color marrón rojizo de olor acre. <br/>Se toma como referencia para medir los niveles de contaminación entre las muchas <br/>sustancias que emiten los vehículos a motor, como el dióxido y monóxido de carbono, <br/>los óxidos de azufre o partículas en suspensión.<br/>';
+            return 'Es un gas más denso que el aire color marrón rojizo de olor acre. <br/>Se toma como referencia para medir los niveles de contaminación entre las muchas <br/>sustancias que emiten los vehículos a motor, como el dióxido y monóxido de carbono, <br/>los óxidos de azufre o partículas en suspensión.<br/>';
     }
 };
 

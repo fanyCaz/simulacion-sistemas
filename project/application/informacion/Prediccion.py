@@ -11,9 +11,10 @@ from pylab import rcParams
 import datetime
 plt.style.use('fivethirtyeight')
 
-contaminante = 'NO2'
+contaminante = 'CA'
 #ABRIL
 mes = '05'
+thisPath = Path(__file__).parent.absolute()
 pathAbril = "{}_2020_{}.csv".format(mes,contaminante)
 filePathAbril = thisPath/'datos'/pathAbril
 
@@ -72,13 +73,13 @@ for i in range(0,len(maximos)):
     valoresPredecidos.append(val)
 print(valoresPredecidos)
 mis = pd.DataFrame(valoresPredecidos)
-mis.to_csv('promedios_no2.csv',header=False)
+mis.to_csv('promedios_ca.csv',header=False)
 #FIN PREDICCIONES
 
 ax = y['0':].plot(label='observados')
 pred.predicted_mean.plot(ax=ax, label='prediccion',alpha=.7)
 #Datos de prediccion pred_ci
-pred_ci.to_csv('prediccion_no2.csv')
+pred_ci.to_csv('prediccion_ca.csv')
 ax.fill_between(pred_ci.index, pred_ci.iloc[:,0],pred_ci.iloc[:,1], color='k',alpha=.2)
 ax.set_xlabel('Horas')
 ax.set_ylabel('Niveles NO2')
